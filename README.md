@@ -1,8 +1,14 @@
-# forth-try
+# CoffeeMachinesWebPart
 
 ## Summary
 
-Short summary on functionality and used technologies.
+Simple crud operation over sharepoint list with SPFx web part. 
+
+Additional functionallity:
+ - Filterring
+ - Sorting
+ - Pagintion
+ - Searching
 
 [picture of the solution in action, if possible]
 
@@ -46,7 +52,7 @@ Short summary on functionality and used technologies.
 - Ensure that you are at the solution folder
 - in the command-line run:
   - **npm install**
-  - **gulp serve**
+  - **npm start**
 
 > Include any additional steps as needed.
 

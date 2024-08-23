@@ -1,0 +1,57 @@
+
+.headerContainer {
+  background-color: #F8FBFD;
+  padding: 10px 0;
+
+
+.listTitle {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+}
+
+  .ribbon {
+    width: 100%;
+    padding: 5px 15px;
+    
+    td {
+      height: 23px;
+      border: 1px solid #fff;
+    
+      &:last-child{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0 2px;
+        padding-right: 3px;
+       }
+    }
+  
+    .searchBox {
+      width: 120px; 
+  
+    }
+
+    .filter {
+      select {
+        margin-left: 10px;
+        width: 120px;
+        padding: 2px 1px;
+      }
+    }
+
+    button {
+      color: white;
+      background-color: #173F82;
+      border: none;
+      cursor: pointer;
+      width: 75px;
+   
+      &:hover {
+        background-color: darken(#173F82, 10%); 
+      }
+    }
+  }
+
+}

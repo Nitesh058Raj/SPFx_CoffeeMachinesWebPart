@@ -21,4 +21,9 @@ export default class CrudOnCoffeeMachinesWebPart extends BaseClientSideWebPart<I
 
     ReactDom.render(element, this.domElement);
   }
+
+   protected onDispose(): void {
+    ReactDom.unmountComponentAtNode(this.domElement);
+  }
+
 }
