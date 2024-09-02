@@ -8,8 +8,6 @@ export interface IListProps {
 		field_9: string[];
 	}[];
 	onEdit: (id: number) => void;
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	service: any;
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	fetchItems: any;
+
+	_handleDelete: (id: number) => void;
 }

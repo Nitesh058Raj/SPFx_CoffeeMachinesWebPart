@@ -5,6 +5,7 @@ import { List } from "./list/List";
 import { Footer } from "./footer/Footer";
 import { IItem} from "../../services/IService";
 import { IDisplayProps } from "./IDisplay";
+import { DeletePopUp } from "../../modals/deletePopup/DeletePopUp";
 
 export const Display: React.FC<IDisplayProps> = ({ onCreate, onEdit, service }) => {
 
@@ -14,6 +15,8 @@ export const Display: React.FC<IDisplayProps> = ({ onCreate, onEdit, service }) 
 	const [items, setItems] = React.useState<IItem[]>([]);
 	const [currentPage, setCurrentPage] = React.useState(1);
 	const [sortOption, setSortOption] = React.useState('');
+	const [deletePopUp, setDeletePopUp] = React.useState(false);
+	const [deleteItemId, setDeleteItemId] = React.useState(0);
 	const itemsPerPage = 10;
 	
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -26,6 +29,7 @@ export const Display: React.FC<IDisplayProps> = ({ onCreate, onEdit, service }) 
 			currentPage,
 			itemsPerPage,
 		});
+		setDeletePopUp(false);
 		setItems(data);
 	};
 
@@ -43,11 +47,11 @@ export const Display: React.FC<IDisplayProps> = ({ onCreate, onEdit, service }) 
 				<Header
 					filters={filters}
 					setFilters={setFilters}
-					searchTerm={searchTerm}
+					searchTerm={searchTerm} 
 					setSearchTerm={setSearchTerm}
 					onCreate={onCreate}
 				/>
-				<List items={items} onEdit={onEdit} service={service} fetchItems={fetchItems} />
+				<List items={items} onEdit={onEdit} _handleDelete={(id) => { setDeleteItemId(id); setDeletePopUp(true); } } />
 				<Footer
 					currentPage={currentPage}
 					setCurrentPage={setCurrentPage}
@@ -55,6 +59,15 @@ export const Display: React.FC<IDisplayProps> = ({ onCreate, onEdit, service }) 
 					setSortOption={setSortOption}
 				/>
 			</div>
+
+			{
+				deletePopUp && (<DeletePopUp
+						id={deleteItemId}
+						service={service} fetchItems={fetchItems} 
+						_handleCancelDelete={() => setDeletePopUp(false)}
+					/>
+				)
+			}
 		</>
 	)
 }

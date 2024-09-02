@@ -9,7 +9,7 @@ export interface IEditProps {
 
 export const initItem: IFullItem = {
 	Title: "",
-	field_1: 0,
+	field_1: undefined,
 	field_2: "",
 	field_3: "",
 	field_4: {

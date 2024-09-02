@@ -35,7 +35,7 @@ export interface ICreateItem {
 export interface IFullItem {
 
 	Title: string;
-	field_1: number;
+	field_1: number | undefined;
 	field_9: string[];
 	field_5: string;
 	field_7: string;

@@ -14,16 +14,16 @@ export const Layout: React.FC = () => {
 	const context = useAppContext();
 	const service = CoffeeMachineService(context);
 
-	const _handleCreate = () => {
+	const _handleCreate = () : void => {
 		setView("create");
 	}
 
-	const _handleEdit = (Id: number) => {
+	const _handleEdit = (Id: number) : void => {
 		setEditItemID(Id);
 		setView("edit");
 	}
 
-	const _handleDisplay = () => {
+	const _handleDisplay = (): void => {
 		setView("display");
 	}
 

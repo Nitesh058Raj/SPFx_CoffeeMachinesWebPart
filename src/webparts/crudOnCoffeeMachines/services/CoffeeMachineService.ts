@@ -18,7 +18,7 @@ export const CoffeeMachineService = (context: WebPartContext) : any => {
 		try {
 			const filterQuery = generateFilterQuery(filters, searchTerm); 
 			const sortOptions = generateSortOptions(sortOption);
-
+//debugger
 			const spItems = await list.items
 									.filter(filterQuery)
 									.orderBy(sortOptions.columnName, sortOptions.order === "asc")

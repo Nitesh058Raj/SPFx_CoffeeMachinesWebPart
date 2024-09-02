@@ -2,13 +2,9 @@ import * as React from "react";
 import styles from "./List.module.scss";
 import { IListProps } from "./IList";
 
-export const List: React.FC<IListProps> = ({ items, onEdit, service, fetchItems }) => {
-	const _handleDelete = async (id: number) => {
-		await service.deleteMachine(id);
-		fetchItems();
-	}
+export const List: React.FC<IListProps> = ({ items, onEdit, _handleDelete }) => {
 	return(
-		<>
+		<>	
 			<div className={styles.listContainer}>
 				<table className={styles.listTable}>
 					<thead>

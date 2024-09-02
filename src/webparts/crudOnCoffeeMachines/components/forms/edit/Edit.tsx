@@ -6,18 +6,23 @@ import { IFullItem } from "../../../services/IService";
 export const Edit: React.FC<IEditProps> = ({ id, onDisplay, service }) => {
 
 	const [item, setItem ] = React.useState<IFullItem>(initItem);
+	const [loading, setLoading] = React.useState(true);    // To manage the loading state
 
 	React.useEffect( () => {
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		const fetchItem = async (): Promise<any> => {
 			const data = await service.getMachine(id);
 			setItem(data);
+			setLoading(false);
 		};
 
 		// eslint-disable-next-line  @typescript-eslint/no-floating-promises
 		fetchItem();
-	}, []);
+	}, [id]);
 
+	if (loading) {
+		return <div>Loading...</div>;
+	}
 
 	const _handleUpdate = async (): Promise<void> => {
 
@@ -60,7 +65,7 @@ export const Edit: React.FC<IEditProps> = ({ id, onDisplay, service }) => {
 						<p>Product Summary: <input type="text" defaultValue={item.field_5} id="Product_Summary" /></p>
 					</div>
 					<div className={styles.inputGroup}>
-						<p>Price: <input type="text" defaultValue={item.field_1} id="Price" /></p>
+						<p>Price: <input type="text" defaultValue={item.field_1 || ""} id="Price" /></p>
 					</div>
 					<div className={styles.inputGroup}>
 						<p>Status: <input type="text" defaultValue={item.field_9} id="Status" /></p>

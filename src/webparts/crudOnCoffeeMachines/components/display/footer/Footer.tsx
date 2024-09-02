@@ -19,10 +19,10 @@ export const Footer: React.FC<IFooterProps> = ({currentPage, setCurrentPage, sor
 						</select>
 				</div>
 				<div className={styles.paginationBox}>
-					<button onClick={() => setCurrentPage(1)} > {'<<'}  </button>
-					<button onClick={() => setCurrentPage(currentPage - 1)} > {'<'} </button>
+					<button onClick={() => setCurrentPage(1)}  disabled={currentPage === 1}> {'<<'}  </button>
+					<button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}> {'<'} </button>
 					<div className={styles.activeNum}> {currentPage} </div> 
-					<button onClick={() => setCurrentPage(currentPage + 1)}> {'>'} </button>
+					<button onClick={() => setCurrentPage(currentPage + 1)} > {'>'} </button>
 					<button onClick={() => setCurrentPage(currentPage + 2)}> {'>>'} </button>
 				</div>
 			</div>
